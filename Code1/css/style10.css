@@ -1,0 +1,284 @@
+/* SANTANDER-STYLE PIX UI — EDITABLE DEMONSTRATION */
+:root {
+    --paper: #ffffff;
+    --viewer: #f1f1f1;
+    --line: #d8d8d8;
+    --ink: #171717;
+    --muted: #777777;
+    --red: #cc0017;
+    --paper-width: 532px;
+    --paper-height: 975px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--viewer);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-synthesis: none;
+}
+
+.document-viewer {
+    width: 100%;
+    min-height: 100vh;
+    padding: 161px 0 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.paper {
+    position: relative;
+    width: min(calc(100% - 44px), var(--paper-width));
+    min-height: var(--paper-height);
+    background: var(--paper);
+    box-shadow: 0 3px 3px rgb(0 0 0 / 10%);
+}
+
+.page-inner {
+    position: relative;
+    width: 100%;
+    min-height: var(--paper-height);
+    padding: 28px 55px 61px;
+}
+
+.receipt-heading {
+    position: relative;
+    text-align: center;
+    padding-bottom: 19px;
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    color: var(--red);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.brand-mark {
+    display: block;
+    width: 21px;
+    height: 24px;
+}
+
+.brand-name {
+       font-size: 18px;
+    font-weight: 700;
+       margin-left: -8px;
+    margin-top: 4px;
+    letter-spacing: -.55px;
+}
+
+.receipt-heading h1 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.receipt-date {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.demo-tag {
+    position: absolute;
+    top: -43px;
+    right: -7px;
+    color: #a04b4b;
+    font-size: 9px;
+    letter-spacing: .3px;
+    font-weight: 700;
+}
+
+.receipt-content {
+    padding-top: 10px;
+}
+
+.data-section {
+    width: 100%;
+}
+
+.datum {
+    min-width: 0;
+    margin: 0 0 20px;
+}
+
+.datum-label {
+    font-size: 12px;
+    line-height: 1.3;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.datum-value {
+       font-size: 13px;
+    line-height: 1.24;
+    font-weight: 600;
+    color: #141414;
+    overflow-wrap: anywhere;
+}
+
+.value-block {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 8px;
+    margin-bottom: 22px;
+}
+
+.value-block .datum {
+    margin: 0;
+}
+
+.payment-data .datum {
+    margin-bottom: 24px;
+}
+
+.section-heading {
+    font-size: 12px;
+    line-height: 1.3;
+    color: var(--muted);
+    font-weight: 400;
+    margin: 0 0 21px;
+}
+
+.recipient-data {
+    margin-top: 3px;
+}
+
+.recipient-data .datum {
+    margin-bottom: 15px;
+}
+
+.payment-info {
+    margin-top: 5px;
+}
+
+.payment-info .section-heading {
+    margin-bottom: 20px;
+}
+
+.payment-info .datum {
+    margin-bottom: 22px;
+}
+
+.sender-data {
+    margin-top: 0;
+}
+
+.sender-data .section-heading {
+    margin-bottom: 23px;
+}
+
+.sender-data .datum {
+    margin-bottom: 24px;
+}
+
+.sender-data .datum:last-child {
+    margin-bottom: 0;
+}
+
+.page-footer {
+    position: absolute;
+   bottom: 75px;
+    left: 53px;
+    right: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.second-page .continuation {
+    padding-top: 26px;
+}
+
+.second-page .datum {
+    margin-bottom: 26px;
+}
+
+/* Keep exactly the same content hierarchy on narrow phones. */
+@media (max-width: 575px) {
+    .document-viewer {
+        padding-top: 28px;
+        gap: 24px;
+    }
+
+    .paper {
+        width: min(calc(100% - 24px), 532px);
+    }
+
+    .page-inner {
+        padding-left: clamp(20px, 9.5vw, 55px);
+        padding-right: clamp(20px, 9.5vw, 55px);
+    }
+
+    .page-footer {
+        left: clamp(20px, 9.5vw, 53px);
+        right: clamp(20px, 9.5vw, 55px);
+    }
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    body {
+        background: white;
+    }
+
+    .document-viewer {
+        padding: 0;
+        gap: 0;
+    }
+
+    .paper {
+        box-shadow: none;
+        width: 100%;
+        min-height: 297mm;
+        break-after: page;
+    }
+
+    .page-inner {
+        min-height: 297mm;
+    }
+}
+
+/* LOGO SANTANDER */
+.brand-mark {
+  --logo-width: 28px;
+    --logo-height: 32px;
+    display: block;
+    width: var(--logo-width);
+    height: var(--logo-height);
+    max-width: 100%;
+    object-fit: contain;
+    flex-shrink: 0;
+    padding: 0;
+    margin: 0;
+    MARGIN-LEFT: -35px;
+}
+
+/* KHUNG CHỨA LOGO */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}

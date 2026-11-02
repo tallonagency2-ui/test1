@@ -1,0 +1,524 @@
+/* SHOPEEPAY-STYLE UI PROTOTYPE — TRANSACTION DATA IS FICTIONAL */
+:root {
+    color-scheme: light;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    color: #252525;
+    background: #e8ebef;
+    font-synthesis: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    font: inherit;
+}
+
+.phone {
+    width: 100%;
+    max-width: 576px;
+    height: 100dvh;
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #f6f6f6;
+    container-type: inline-size;
+}
+
+/* HEADER */
+.top-area {
+    height: 35.77cqw;
+    /* 206px at 576px */
+    flex: 0 0 35.77cqw;
+    position: relative;
+    z-index: 0;
+    color: white;
+    background: #f04428;
+}
+
+.status-bar {
+    height: 9.1cqw;
+    padding: 3.05cqw 3cqw 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: #6c2919;
+    font-size: 3.15cqw;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.status-icons svg {
+    display: block;
+    width: 11.4cqw;
+    height: 3.6cqw;
+    color: #6a2a1b;
+}
+
+.toolbar {
+    height: 10.4cqw;
+    display: flex;
+    align-items: center;
+    gap: 2cqw;
+    padding: 0 3.25cqw;
+}
+
+.icon-button {
+    border: 0;
+    background: none;
+    padding: 0;
+    width: 3.8cqw;
+    height: 6cqw;
+    display: grid;
+    place-items: center;
+    flex: none;
+    cursor: pointer;
+}
+
+.icon-button svg {
+    width: 3.7cqw;
+    height: 4.8cqw;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2.1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.toolbar h1 {
+     margin: 0;
+    font-size: 3.56cqw;
+    font-weight: 700;
+    letter-spacing: -0.035cqw;
+    line-height: 1.25;
+}
+
+/* SCROLLABLE CARD LIST */
+.content-scroll {
+    position: relative;
+    z-index: 1;
+    flex: 1 1 auto;
+    min-height: 0;
+    margin-top: -13.37cqw;
+    /* overlap card over orange header */
+    padding: 0 3.65cqw 3cqw;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+}
+
+.content-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.result-card {
+    position: relative;
+    height: 31.6cqw;
+    border-radius: 1.15cqw;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5.6cqw;
+    margin-bottom: 2.8cqw;
+}
+
+.demo-chip {
+    position: absolute;
+    top: 2cqw;
+    right: 2.1cqw;
+    border: 1px solid #e0a69b;
+    border-radius: .7cqw;
+    color: #bc5946;
+    font-size: 1.6cqw;
+    font-weight: 700;
+    letter-spacing: .1cqw;
+    padding: .55cqw 1cqw;
+}
+
+.result-amount {
+    font-weight: 400;
+    font-size: 7.55cqw;
+    line-height: 1;
+    letter-spacing: -.1cqw;
+    color: #1b1b1b;
+    margin: 0 0 3.6cqw;
+    font-variant-numeric: tabular-nums;
+}
+
+.amount-minus {
+    font-size: .47em;
+    letter-spacing: -.1cqw;
+}
+
+.completed-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.7cqw;
+    color: #2fb274;
+    font-size: 3.3cqw;
+    margin-bottom: 1.7cqw;
+}
+
+.green-check {
+    width: 4.1cqw;
+    height: 4.1cqw;
+    border-radius: 50%;
+    background: #2db776;
+    display: grid;
+    place-items: center;
+}
+
+.green-check svg {
+    width: 2.9cqw;
+    height: 2.9cqw;
+    stroke: #fff;
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.completion-date {
+    font-size: 2.78cqw;
+    color: #878787;
+    margin: 0;
+}
+
+.info-card {
+    background: white;
+    border-radius: 1.6cqw;
+    margin-bottom: 2.7cqw;
+    padding: 4.2cqw 3cqw 3cqw;
+    overflow: hidden;
+}
+
+.info-card h2 {
+    font-size: 15px;
+    line-height: 1.18;
+    font-weight: 400;
+    color: #292929;
+    margin: 0;
+}
+
+.receiver-card {
+    height: 30.55cqw;
+}
+
+.sender-card {
+    height: 30.7cqw;
+}
+
+.resources-card {
+    height: 22.2cqw;
+}
+
+.person-layout {
+    display: flex;
+    align-items: center;
+    gap: 2.4cqw;
+    margin-top: 2.7cqw;
+}
+
+.person-symbol {
+    width: 7.2cqw;
+    flex: 0 0 7.2cqw;
+    align-self: center;
+}
+
+.person-symbol svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.person-lines {
+    min-width: 0;
+}
+
+.person-lines p {
+    margin: 0 0 2.05cqw;
+       font-size: 13px;
+    line-height: 1.27;
+    letter-spacing: .015cqw;
+    color: #858585;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.person-lines p:last-child {
+    margin-bottom: 0;
+}
+
+.wallet-row {
+    display: flex;
+    align-items: center;
+    gap: 2.4cqw;
+    margin-top: 3cqw;
+}
+
+.wallet-icon {
+    width: 7.3cqw;
+    height: 7.3cqw;
+    display: block;
+    flex: none;
+}
+
+.wallet-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.wallet-text {
+        font-size: 13px;
+    margin-left: -8px;
+    color: #868686;
+}
+
+.details-card {
+    min-height: 46cqw;
+    padding-top: 1.25cqw;
+    padding-bottom: 0;
+    margin-bottom: 2.5cqw;
+}
+
+.transaction-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2.5cqw;
+    margin-top: 4.3cqw;
+    padding-bottom: 3.9cqw;
+    border-bottom: 1px solid #ededed;
+}
+
+.transaction-entry.last-entry {
+    margin-top: 3.6cqw;
+    border-bottom: 0;
+}
+
+.entry-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6cqw;
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.entry-label {
+    font-size: 2.65cqw;
+    color: #858585;
+}
+
+.entry-value {
+    font-size: 3.15cqw;
+    line-height: 1.18;
+    color: #383838;
+    overflow-wrap: anywhere;
+}
+
+.copy-button {
+    flex: 0 0 auto;
+    border: 1px solid #f04c30;
+    border-radius: .25cqw;
+    color: #f04c30;
+    background: #fff;
+    font-size: 2.85cqw;
+    padding: .8cqw 2.25cqw;
+    cursor: pointer;
+        margin-top: 14px;
+}
+
+.copy-button:hover {
+    background: #fff5f1;
+}
+
+.copy-button:focus-visible,
+.share-button:focus-visible,
+.back-btn:focus-visible {
+    outline: 2px solid #555;
+    outline-offset: 3px;
+}
+
+.simulation-note {
+    text-align: center;
+    font-size: 2.25cqw;
+    color: #777;
+    line-height: 1.3;
+    margin: 1cqw 0 1.5cqw;
+}
+
+/* FIXED SHARE + ANDROID NAV */
+.share-panel {
+    flex: 0 0 17.4cqw;
+    height: 17.4cqw;
+    background: #f6f6f6;
+    padding: 3.05cqw 2.4cqw 2cqw;
+    position: relative;
+    z-index: 3;
+}
+
+.share-button {
+        display: flex;
+    width: 100%;
+    height: 9cqw;
+    border: 0;
+    border-radius: 1.55cqw;
+    background: #f04729;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    gap: 1.3cqw;
+    font-size: 3.2cqw;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: -16px;
+}
+
+.share-button svg {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    width: 5.3cqw;
+    height: 5.3cqw;
+}
+
+.android-navigation {
+    flex: 0 0 11.15cqw;
+    height: 11.15cqw;
+    background: #000;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #999;
+}
+
+.android-navigation svg {
+    height: 4.7cqw;
+    width: 4.7cqw;
+    stroke: #999;
+    stroke-width: 2.2;
+    fill: none;
+}
+
+.android-navigation .nav-recents {
+    width: 4.2cqw;
+    stroke-width: 1.7;
+}
+
+.toast {
+    position: absolute;
+    z-index: 10;
+    bottom: 34cqw;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    opacity: 0;
+    pointer-events: none;
+    width: max-content;
+    max-width: 85%;
+    padding: 2cqw 3cqw;
+    text-align: center;
+    border-radius: 1.3cqw;
+    color: white;
+    background: rgba(38, 38, 38, .91);
+    font-size: 2.7cqw;
+    transition: opacity .2s, transform .2s;
+}
+
+.toast.visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+@media (min-width: 577px) {
+    .phone {
+        box-shadow: 0 0 0 1px #ddd;
+    }
+}
+
+@media (max-height: 620px) {
+    .top-area {
+        flex-basis: 28cqw;
+        height: 28cqw;
+    }
+
+    .content-scroll {
+        margin-top: -6cqw;
+    }
+}
+
+/* KHUNG CHỨA ICON */
+.person-symbol {
+  --icon-size: 38px;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 44px;
+  padding: 0;
+  margin: 0;
+
+  overflow: visible;
+}
+
+/* ẢNH ICON */
+.person-img {
+  display: block;
+
+  width: var(--icon-size);
+  height: var(--icon-size);
+
+  max-width: 100%;
+  max-height: 100%;
+
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.person-symbol {
+  --icon-size: 38px;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 44px;
+  overflow: hidden;
+}
+
+.person-img {
+      display: block;
+    width: 114px;
+    height: 134px;
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: -14px;
+    object-fit: contain;
+}

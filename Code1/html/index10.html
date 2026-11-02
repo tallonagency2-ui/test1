@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Comprovante do Pix — Protótipo UI</title>
+  <link rel="stylesheet" href="../css/style10.css">
+</head>
+<body>
+  <main class="document-viewer" aria-label="Protótipo de layout de comprovante em duas páginas">
+    <!-- PÁGINA 1 -->
+    <article class="paper first-page" aria-label="Página 1 da demonstração">
+      <div class="page-inner">
+        <header class="receipt-heading">
+          <div class="brand" aria-label="Identidade visual ilustrativa Santander">
+            
+<img
+  src="../img/santander-logo.png"
+  alt="Santander"
+  class="brand-mark"
+  draggable="false"
+>
+
+            <span class="brand-name">Santander</span>
+          </div>
+          <h1>Comprovante do Pix</h1>
+          <p class="receipt-date">04/07/2026 - 05:49:42</p>
+       
+        </header>
+
+        <section class="receipt-content">
+          <div class="data-section value-block">
+            <div class="datum">
+              <div class="datum-label">Valor pago</div>
+              <div class="datum-value">R$ 90,00</div>
+            </div>
+          </div>
+
+          <section class="data-section payment-data" aria-label="Dados do pagamento">
+            <div class="datum">
+              <div class="datum-label">Identificação do pagamento</div>
+              <div class="datum-value">3czg3ht7lzgmpdxvnfp5ojvjcx</div>
+            </div>
+            <div class="datum">
+              <div class="datum-label">Forma de pagamento</div>
+              <div class="datum-value">Ag 0000 Cc 0000000-0</div>
+            </div>
+          </section>
+
+          <section class="data-section recipient-data" aria-label="Dados do recebedor">
+            <h2 class="section-heading">Dados do recebedor</h2>
+            <div class="datum">
+              <div class="datum-label">Para</div>
+              <div class="datum-value">BGB ENTRETENIMENTO LTDA</div>
+            </div>
+            <div class="datum">
+              <div class="datum-label">CNPJ</div>
+              <div class="datum-value">64.***.***/0001-07</div>
+            </div>
+            <div class="datum">
+              <div class="datum-label">Instituição</div>
+              <div class="datum-value">04838403</div>
+            </div>
+          </section>
+
+          <section class="data-section payment-info" aria-label="Informações do pagamento">
+            <h2 class="section-heading">Informações do pagamento</h2>
+            <div class="datum">
+              <div class="datum-label">Valor original</div>
+              <div class="datum-value">R$ 90,00</div>
+            </div>
+          </section>
+
+          <section class="data-section sender-data" aria-label="Dados do pagador">
+            <h2 class="section-heading">Dados do pagador</h2>
+            <div class="datum">
+              <div class="datum-label">De</div>
+              <div class="datum-value">VERONICE QUEIROZ TERTO FILHO</div>
+            </div>
+            <div class="datum">
+              <div class="datum-label">CPF</div>
+              <div class="datum-value">***.432.368-**</div>
+            </div>
+            <div class="datum">
+              <div class="datum-label">Instituição</div>
+              <div class="datum-value">033 - BANCO SANTANDER S.A.</div>
+            </div>
+            <div class="datum">
+              <div class="datum-label">ID/Transação</div>
+              <div class="datum-value">E9040088820260704084864935787552</div>
+            </div>
+          </section>
+        </section>
+
+        <footer class="page-footer">
+          <span>Comprovante do Pix</span>
+          <span>1/2</span>
+        </footer>
+      </div>
+    </article>
+
+    <!-- PÁGINA 2 -->
+    <article class="paper second-page" aria-label="Página 2 da demonstração">
+      <div class="page-inner">
+        <section class="continuation">
+          <div class="datum">
+            <div class="datum-label">Data e hora da transação</div>
+            <div class="datum-value">04/07/2026 - 05:49:42</div>
+          </div>
+         
+        </section>
+       
+      </div>
+    </article>
+  </main>
+  <script src="../js/app.js"></script>
+</body>
+</html>

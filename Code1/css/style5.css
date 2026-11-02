@@ -1,0 +1,356 @@
+/* =========================================================
+   NUBANK-STYLE RECEIPT — UI DEMO (DADOS FICTÍCIOS)
+   Layout de referência: 292px de largura, orientação vertical.
+   Altere variáveis para dimensionar sem quebrar o layout.
+========================================================= */
+
+:root {
+    --page-width: 292px;
+    --text-primary: #292929;
+    --text-secondary: #757575;
+    --divider: #f0f0f0;
+    --footer-bg: #ededed;
+    --purple: #8c35be;
+    --receipt-padding: 18px;
+    --font-main: Arial, Helvetica, sans-serif;
+    font-family: var(--font-main);
+    color: var(--text-primary);
+    font-synthesis: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-width: 280px;
+    margin: 0;
+    background: #000;
+}
+
+.receipt {
+    width: 100%;
+    max-width: var(--page-width);
+    min-height: 1280px;
+    margin: 0 auto;
+    background: #fff;
+    overflow-wrap: anywhere;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* CABEÇALHO */
+.receipt-header {
+    padding: 12px var(--receipt-padding) 0;
+}
+
+.brand-row {
+    height: 58px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.brand {
+    position: relative;
+    display: inline-flex;
+    align-items: flex-start;
+    width: 44px;
+    height: 32px;
+}
+
+.brand-word {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1;
+}
+
+.brand-check {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 16px;
+    left: 24px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #636363;
+    color: white;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.demo-tag {
+    color: #7b7b7b;
+    border: 1px solid #d3d3d3;
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-size: 8px;
+    letter-spacing: .3px;
+    font-weight: 700;
+}
+
+.receipt-header h1 {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.18;
+    letter-spacing: -.35px;
+    font-weight: 700;
+}
+
+.date {
+    margin: 9px 0 0;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+/* LINHAS DE VALORES */
+.info-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-row {
+    display: grid;
+    grid-template-columns: minmax(0, 54%) minmax(0, 46%);
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    min-height: 43px;
+}
+
+.row-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.25;
+        margin-top: -7px;
+}
+
+.row-value {
+    min-width: 0;
+    text-align: right;
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+/* PRIMEIRO BLOCO */
+.summary {
+    padding: 19px var(--receipt-padding) 9px;
+    border-bottom: 1px solid var(--divider);
+}
+
+.summary .info-row {
+    min-height: 35px;
+}
+
+.summary .transaction-row {
+    min-height: 44px;
+}
+
+.transaction-value {
+    max-width: 100%;
+}
+
+/* GRUPOS COM DIVISÓRIAS */
+.receipt-section {
+    padding: 14px var(--receipt-padding) 4px;
+    border-bottom: 1px solid var(--divider);
+}
+
+.receipt-section h2 {
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 2px 0 11px;
+}
+
+.receipt-section .info-row {
+    min-height: 39px;
+}
+
+.receipt-section .row-value {
+    font-size: 12px;
+    margin-left: -43px;
+    margin-top: 5px;
+}
+
+.additional-section {
+    padding-top: 26px;
+    padding-bottom: 13px;
+}
+
+.additional-section h2 {
+    margin-bottom: 14px;
+}
+
+.additional-section .info-row {
+    min-height: 43px;
+}
+
+.additional-section .identifier-row {
+    min-height: 59px;
+}
+
+/* RODAPÉ CINZA */
+.footer {
+    min-height: 315px;
+    padding: 29px var(--receipt-padding) 24px;
+    background: var(--footer-bg);
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer-institution {
+    max-width: 250px;
+    font-size: 12px;
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+.footer-cnpj {
+    margin-top: 4px !important;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.footer-transaction {
+    margin-top: 24px;
+}
+
+.footer-transaction>p:first-child {
+    font-size: 12px;
+}
+
+.footer-id {
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 2px !important;
+}
+
+.footer-help-text {
+    margin-top: 5px !important;
+    max-width: 243px;
+    font-size: 11px;
+    color: #858585;
+    line-height: 1.5;
+}
+
+.help-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 21px 0 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--purple);
+    font-size: 11px;
+    line-height: 1.2;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.help-link:focus-visible {
+    outline: 2px solid var(--purple);
+    outline-offset: 4px;
+}
+
+.help-content {
+    margin-top: 10px;
+    padding: 8px;
+    background: rgba(255, 255, 255, .6);
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+.footer-contact {
+    margin-top: 24px !important;
+    font-size: 10.5px;
+    line-height: 1.55;
+    color: #747474;
+}
+
+.demo-disclaimer {
+    margin-top: 22px;
+    padding: 7px 5px;
+    border: 1px solid #c8b4ce;
+    border-radius: 3px;
+    color: #704481;
+    font-size: 9px;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: .1px;
+}
+
+/* Fill mobile width but keep the very narrow receipt feel on large screens */
+@media (max-width: 320px) {
+    :root {
+        --receipt-padding: 16px;
+    }
+
+    .receipt {
+        max-width: 100%;
+    }
+
+    .row-title,
+    .row-value {
+        font-size: 11.5px;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 430px) {
+    :root {
+        --page-width: 100%;
+    }
+
+    body {
+        background: #fff;
+    }
+
+    .receipt {
+        min-height: 100dvh;
+    }
+
+    .summary {
+        padding-top: 21px;
+    }
+
+    .receipt-section .info-row {
+        min-height: 47px;
+    }
+}
+
+/* KHUNG CHỨA LOGO */
+.brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    min-height: 42px;
+    min-width: 0;
+}
+
+/* LOGO IMAGE */
+.brand-logo {
+    --logo-width: 55px;
+    display: block;
+    width: min(var(--logo-width), 100%);
+    height: auto;
+    margin-left: -7px;
+    max-height: 55px;
+    object-fit: contain;
+    object-position: left center;
+    flex-shrink: 0;
+    border: none;
+}
