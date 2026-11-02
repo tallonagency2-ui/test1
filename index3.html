@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Comprovante — Protótipo UI</title>
+  <link rel="stylesheet" href="../css/style3.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body>
+  <main class="app" aria-label="Protótipo de interface de comprovante Pix">
+    <!-- Status bar: illustration only, not a real Android status bar -->
+    <div class="statusbar" aria-hidden="true">
+      <div class="status-left">
+        <span class="status-time">1:21</span>
+        <svg class="status-small" viewBox="0 0 24 24" fill="currentColor"><path d="M9 3a8 8 0 0 0-7 8c0 3.6 2.4 6.8 5.9 7.7l1.2-3a4.9 4.9 0 0 1-1.9-4c0-2.3 1.5-4.3 3.6-4.8L9 3Zm3.5 0-1.2 3a4.9 4.9 0 0 1 4.3 4.9c0 1.7-.9 3.3-2.2 4.2l1.1 3c3.1-1.2 5.3-4.2 5.3-7.3A8 8 0 0 0 12.5 3Z"/></svg>
+      </div>
+      <div class="status-right">
+        <span class="status-data">7,46<br><small>KB/s</small></span>
+        <span class="status-network">4G</span>
+        <svg viewBox="0 0 24 24" class="signal-icon" fill="currentColor"><rect x="3" y="17" width="3" height="5"/><rect x="8" y="13" width="3" height="9"/><rect x="13" y="9" width="3" height="13"/><rect x="18" y="5" width="3" height="17"/></svg>
+        <svg viewBox="0 0 24 24" class="wifi-icon" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M2 9c5.6-5 14.4-5 20 0M5 13c4-3.5 10-3.5 14 0M9 17c1.6-1.2 4.4-1.2 6 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg>
+        <span class="battery">95</span>
+        <span class="status-led"></span>
+      </div>
+    </div>
+
+    <!-- Top navigation -->
+    <header class="topbar">
+      <button class="icon-button back-button" id="back" aria-label="Voltar" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0 7-7m-7 7 7 7"/></svg>
+      </button>
+      <h1>Comprovante</h1>
+      <button class="icon-button home-button" id="home" aria-label="Início" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8v10H3V11Z"/><path d="M9 21v-8h6v8"/></svg>
+      </button>
+    </header>
+
+    <!-- Success panel -->
+    <section class="hero" aria-label="Resultado de demonstração">
+      <div class="check-circle" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><path d="m12 25 9 9 16-19"/></svg>
+      </div>
+      <h2>Pix enviado</h2>
+      <div class="hero-price">R$ 10,00</div>
+    </section>
+
+    <!-- Transaction details: fictional data -->
+    <section class="transaction-section">
+      <h3>Sobre a transação</h3>
+      <div class="details-row">
+        <span class="row-label">Data da transação</span>
+        <strong class="row-value">Terça-feira, 20/10/2026</strong>
+      </div>
+      <div class="details-row">
+        <span class="row-label">Horário</span>
+        <strong class="row-value">04h39</strong>
+      </div>
+      <div class="details-row identifier-row">
+        <span class="row-label">Identificador</span>
+        <strong class="row-value">U261020wbcjpQ000000000</strong>
+      </div>
+      <div class="details-stack">
+        <span class="row-label">ID da transação</span>
+        <strong>E00416968202610200737wwxCtn8OLTY</strong>
+      </div>
+    </section>
+
+    <div class="divider" role="presentation"></div>
+
+    <section class="recipient-section">
+      <h3>Quem recebeu</h3>
+      <div class="details-row">
+        <span class="row-label">Nome</span>
+        <strong class="row-value">Alma Tecnologia Ltda</strong>
+      </div>
+      <div class="details-row">
+        <span class="row-label">CPF/CNPJ</span>
+        <strong class="row-value">68.185.915/0001-52</strong>
+      </div>
+      <div class="details-row">
+        <span class="row-label">Instituição</span>
+        <strong class="row-value">MW IP LTDA</strong>
+      </div>
+    </section>
+
+    <div class="bottom-spacer"></div>
+
+    <div class="bottom-action">
+      <button id="share" class="share-button" type="button">Compartilhar comprovante</button>
+      
+    </div>
+
+    <!-- Navigation bar: illustration only -->
+    <div class="android-nav" aria-hidden="true">
+      <span class="nav-square"></span>
+      <span class="nav-home"><span></span></span>
+      <span class="nav-triangle"></span>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+</body>
+</html>
