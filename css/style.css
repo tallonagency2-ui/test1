@@ -1,0 +1,665 @@
+
+/* =========================================
+   1. GLOBAL
+========================================= */
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #292929;
+  background: #f7f7f7;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* =========================================
+   2. RECEIPT CONTAINER
+========================================= */
+
+.receipt {
+  position: relative;
+  width: min(100%, 920px);
+  min-height: 1280px;
+  margin: 0 auto;
+  background: #fafafa;
+  padding: 55px 76px 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================
+   3. HEADER
+========================================= */
+
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 3px;
+}
+
+/* =========================================
+   4. BRAND
+========================================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #32a86c;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-bottom: 39px;
+}
+
+.brand-icon {
+  font-size: 19px;
+  letter-spacing: 0;
+  align-self: flex-start;
+}
+
+.demo-label {
+  margin-left: 14px;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  border: 1px solid #66b28d;
+  border-radius: 3px;
+  padding: 4px 7px;
+}
+
+/* =========================================
+   5. TITLE & DATE
+========================================= */
+
+h1 {
+  font-size: 29px;
+  letter-spacing: -0.7px;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.date {
+  font-size: 20px;
+  color: #414141;
+  margin: 0;
+}
+
+/* =========================================
+   6. TRANSACTION DETAILS
+========================================= */
+
+.details {
+  padding-top: 20px;
+}
+
+.field {
+  margin-bottom: 29px;
+}
+
+.field-label {
+  color: #727272;
+  font-size: 21px;
+  font-weight: 600;
+  margin-bottom: 11px;
+}
+
+.amount {
+  font-size: 43px;
+      line-height: 1.1;
+    font-weight: 550;
+    letter-spacing: -0.7px;
+}
+
+/* =========================================
+   7. RECIPIENT
+========================================= */
+
+.recipient {
+  margin-top: 27px;
+}
+
+.person {
+  font-size: 28px;
+  font-weight: 750;
+  line-height: 1.32;
+     margin-bottom: 2px;
+}
+
+.sub {
+  font-size: 21px;
+  color: #606060;
+  line-height: 1.36;
+  margin-top: 3px;
+}
+
+/* =========================================
+   8. SENDER
+========================================= */
+
+.sender {
+  margin-top: 25px;
+}
+
+/* =========================================
+   9. TRANSACTION ID
+========================================= */
+
+.transaction {
+  margin-top: 24px;
+}
+
+.transaction-id {
+  font-size: 20px;
+  overflow-wrap: anywhere;
+  max-width: 400px;
+}
+
+/* =========================================
+   10. FOOTER
+========================================= */
+
+footer {
+  border-top: 1px solid #e3e3e3;
+  margin-top: auto;
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  font-size: 18px;
+  color: #555;
+}
+
+.footer-logo {
+  color: #35a66b;
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+
+.institution strong {
+  font-size: 18px;
+}
+
+.institution p {
+  margin: 9px 0;
+}
+
+.support {
+  line-height: 1.28;
+  margin-top: 10px;
+}
+
+/* =========================================
+   11. NOTICE
+========================================= */
+
+.notice {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #888;
+}
+
+/* =========================================
+   12. DEMO WATERMARK
+========================================= */
+
+.demo-watermark {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-28deg);
+  font-size: clamp(80px, 16vw, 150px);
+  font-weight: 800;
+  color: rgba(90, 90, 90, 0.075);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* =========================================
+   13. MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+  /* RECEIPT */
+
+  .receipt {
+    width: 100%;
+    min-height: 100dvh;
+    padding: 28px 23px 26px;
+  }
+
+  /* BRAND */
+
+  .brand {
+    font-size: 27px;
+    margin-bottom: 22px;
+  }
+
+  .brand-icon {
+    font-size: 14px;
+  }
+
+  .demo-label {
+    font-size: 9px;
+    margin-left: 7px;
+  }
+
+  /* TITLE */
+
+  h1 {
+    font-size: 23px;
+  }
+
+  .date {
+    font-size: 16px;
+  }
+
+  /* DETAILS */
+
+  .details {
+    padding-top: 15px;
+  }
+
+  .field {
+    margin-bottom: 23px;
+  }
+
+  .field-label {
+        font-size: 17px;
+        margin-bottom: 10px;
+  }
+
+  .amount {
+            font-size: 32px;
+  }
+
+  /* RECIPIENT */
+
+  .recipient {
+    margin-top: 20px;
+  }
+
+  .person {
+    font-size: 21px;
+  }
+
+  .sub {
+    font-size: 16px;
+  }
+
+  /* SENDER */
+
+  .sender {
+    margin-top: 16px;
+  }
+
+  /* TRANSACTION */
+
+  .transaction {
+    margin-top: 15px;
+  }
+
+  .transaction-id {
+    font-size: 15px;
+  }
+
+  /* FOOTER */
+
+  footer {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding-top: 19px;
+    font-size: 11px;
+  }
+
+  .footer-logo {
+    font-size: 17px;
+    margin-bottom: 7px;
+  }
+
+  .institution strong {
+    font-size: 11px;
+  }
+
+  .institution p {
+    margin: 6px 0;
+  }
+
+  /* NOTICE */
+
+  .notice {
+    font-size: 9px;
+    margin-top: 15px;
+    letter-spacing: 0.2px;
+  }
+
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+      width: 85px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.demo-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #159b63;
+  border: 1px solid #159b63;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+.footer-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ==================================
+   FOOTER - PIX RECEIPT UI DEMO
+================================== */
+
+.receipt {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-height: 100dvh;
+
+  background: #fafafa;
+}
+
+/* Đẩy footer xuống cuối trang */
+.receipt-footer {
+  width: 100%;
+  margin-top: auto;
+
+  padding-top: 25px;
+  padding-bottom: 20px;
+
+  border-top: 1px solid #e5e5e5;
+
+  color: #454545;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Hai cột cân đối */
+.footer-container {
+  display: grid;
+
+  grid-template-columns: 48% 52%;
+  align-items: start;
+
+  width: 100%;
+  gap: 0;
+}
+
+/* ==================================
+   CỘT BÊN TRÁI
+================================== */
+
+.institution {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+  padding-right: 10px;
+}
+
+/* Logo */
+.footer-logo {
+  display: block;
+
+  width: 20px;
+  height: 20px;
+
+  object-fit: contain;
+
+  margin: 0 0 10px 0;
+  padding: 0;
+
+  border: none;
+  background: transparent;
+}
+
+/* Tên tổ chức */
+.institution-name {
+  display: block;
+
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+
+  color: #303030;
+
+  margin: 0 0 5px 0;
+}
+
+/* Mã CNPJ */
+.institution-cnpj {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.45;
+
+  color: #606060;
+
+  margin: 0;
+}
+
+/* ==================================
+   CỘT BÊN PHẢI
+================================== */
+
+.support {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  min-width: 0;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.35;
+
+  color: #444;
+}
+
+.support p {
+  margin: 0;
+  padding: 0;
+
+  overflow-wrap: break-word;
+}
+
+/* Nhãn demo */
+.footer-demo {
+  margin-top: 18px;
+
+  font-size: 10px;
+  font-weight: 600;
+  color: #777;
+
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+/* ==================================
+   MOBILE RESPONSIVE
+================================== */
+
+@media (max-width: 480px) {
+
+  .receipt-footer {
+    padding-top: 22px;
+    padding-bottom: 18px;
+  }
+
+  .footer-container {
+    grid-template-columns: 50% 50%;
+  }
+
+  .institution {
+    padding-right: 8px;
+  }
+
+  .footer-logo {
+    width: 19px;
+    height: 19px;
+    margin-bottom: 8px;
+  }
+
+  .institution-name {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .institution-cnpj {
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+  .support {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .footer-demo {
+    font-size: 9px;
+  }
+}
+
+footer.receipt-footer {
+  display: block;
+  grid-template-columns: none;
+  gap: 0;
+}
+
+.receipt-footer .footer-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 16px;
+  width: 100%;
+}
+
+/* FOOTER - DEMO */
+
+footer.receipt-footer {
+  display: block;
+  width: 100%;
+  margin-top: auto;
+  padding: 24px 0 16px;
+  border-top: 1px solid #e4e4e4;
+  color: #444;
+  background: transparent;
+}
+
+.receipt-footer .footer-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 18px;
+  align-items: start;
+  width: 100%;
+}
+
+.receipt-footer .institution {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 0;
+}
+
+.receipt-footer .footer-logo {
+  display: block;
+     width: 30px;
+    height: 26px;
+  object-fit: contain;
+  margin: 0 0 10px;
+}
+
+.receipt-footer .institution-name {
+  display: block;
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #303030;
+}
+
+.receipt-footer .institution-cnpj {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #666;
+  overflow-wrap: break-word;
+}
+
+.receipt-footer .support {
+  display: block;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #494949;
+      margin-top: 16px;
+          margin-left: -10px;
+}
+
+.receipt-footer .support p {
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+}
+
+.receipt-footer .footer-demo {
+  margin-top: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #777;
+  text-align: center;
+}
+
+/* MÀN HÌNH ĐIỆN THOẠI */
+@media (max-width: 600px) {
+  footer.receipt-footer {
+    padding-top: 20px;
+    padding-bottom: 14px;
+  }
+
+  .receipt-footer .footer-container {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 12px;
+  }
+
+  .receipt-footer .institution-name {
+    font-size: 12px;
+  }
+
+  .receipt-footer .institution-cnpj,
+  .receipt-footer .support {
+           font-size: 12px;
+    line-height: 1.35;
+  }
+}

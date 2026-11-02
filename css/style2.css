@@ -1,0 +1,261 @@
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100%;
+  background: #eef1f4;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #303030;
+}
+
+/* =========================================
+   SCREEN
+========================================= */
+
+.bb-screen {
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 28px 22px 24px;
+  background: #f8f8f8;
+  overflow-x: hidden;
+}
+
+/* watermark nhẹ phía sau */
+.bb-screen::before {
+  content: "";
+  position: absolute;
+  inset: 180px 16px 220px 16px;
+  background-image: url("../img/bb-watermark.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 90%;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.bb-header {
+  position: relative;
+  z-index: 1;
+}
+
+.bb-top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 18px;
+}
+
+.bb-logo {
+       width: 80px;
+    height: 60px;
+    margin-left: -16px;
+    object-fit: contain;
+    display: block;
+}
+
+.bb-title {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #202020;
+}
+
+.bb-amount {
+  margin: 0 0 8px;
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #3f5df4;
+}
+
+.bb-date {
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.35;
+  color: #5a5a5a;
+}
+
+.bb-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #2e2e2e;
+}
+
+.bb-status-icon {
+    width: 45px;
+    height: 25px;
+    margin-left: -10px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.bb-divider {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-top: 1px solid #e0e0e0;
+  margin: 18px 0;
+}
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.bb-section {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 8px;
+}
+
+.bb-label {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #6b6b6b;
+}
+
+.bb-section-title {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #4b4b4b;
+}
+
+.bb-strong {
+  margin: 0 0 10px;
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #2c2c2c;
+}
+
+.bb-subtitle {
+  margin: 0 0 4px;
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #3c3c3c;
+}
+
+.bb-text {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: #666666;
+  word-break: break-word;
+}
+
+.bb-info-line {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #474747;
+  word-break: break-word;
+}
+
+.bb-contact-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #464646;
+  word-break: break-word;
+}
+
+.bb-bottom-note p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #4c4c4c;
+}
+
+.bb-demo-note {
+  margin-top: 20px;
+  font-size: 10px;
+  line-height: 1.4;
+  font-weight: 700;
+  text-align: center;
+  color: #7c7c7c;
+  letter-spacing: 0.3px;
+}
+
+/* =========================================
+   RESPONSIVE FINE TUNING
+========================================= */
+
+@media (max-width: 390px) {
+  .bb-screen {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .bb-logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .bb-title {
+    font-size: 20px;
+  }
+
+  .bb-amount {
+    font-size: 26px;
+  }
+}
+
+/* KHUNG CHỨA WATERMARK */
+.bb-screen {
+  position: relative;
+  isolation: isolate;
+}
+
+/* LOGO NỀN CHÌM */
+.bb-screen::before {
+  content: "";
+  position: absolute;
+
+  top: 110px;
+  left: -185px;
+
+  width: 550px;
+  height: 690px;
+
+  background-image: url("../img/bb-logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: -1;
+}
+.bb-status span{
+    font-size: 18px;
+    margin-left: -12px;
+    margin-top: 2px;
+}

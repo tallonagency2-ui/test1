@@ -1,0 +1,587 @@
+/* Banco-style PDF viewer — educational UI prototype, not a payment receipt. */
+:root {
+  --screen-width: 430px;
+  --ink: #252525;
+  --muted: #828282;
+  --line: #e1e1e1;
+  --toolbar: #f7f8fd;
+  --accent: #7b49ca;
+  font-family: Roboto, "Arial", Helvetica, sans-serif;
+  color: var(--ink);
+  background: #eaf0f8;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: #eaf0f8;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.phone {
+  position: relative;
+  width: 100%;
+  max-width: var(--screen-width);
+  height: 100dvh;
+  min-height: 620px;
+  margin: 0 auto;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 1px 15px rgba(37,43,63,.09);
+}
+
+/* Android status bar (purely visual) */
+.status-bar {
+  height: 41px;
+  min-height: 41px;
+  padding: 0 29px 0 31px;
+  background: var(--toolbar);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #666;
+  font-size: 15px;
+}
+
+.status-left, .status-right {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.status-left .time {
+  font-size: 17px;
+}
+
+.status-square {
+  width: 17px;
+  height: 17px;
+  background: #666;
+  border-radius: 3px;
+}
+
+.status-mini {
+  font-size: 11px;
+}
+
+.status-right {
+  gap: 5px;
+}
+
+.wifi svg {
+  width: 21px;
+  height: 21px;
+  display: block;
+  fill: none;
+  stroke: #636363;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+}
+
+.mobile-signal {
+  font-size: 15px;
+}
+
+.battery {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* PDF-viewer toolbar */
+.viewer-bar {
+  height: 59px;
+  min-height: 59px;
+  background: var(--toolbar);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 13px;
+  border-bottom: 1px solid #e4e6ef;
+  box-shadow: 0 2px 3px rgba(0,0,0,.05);
+  z-index: 5;
+}
+
+.icon-button {
+  padding: 0;
+  border: 0;
+  outline-offset: -2px;
+  background: transparent;
+  color: #50545b;
+  width: 39px;
+  height: 44px;
+  flex: 0 0 39px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.icon-button:active {
+  background: #e8ebf3;
+}
+
+.icon-button svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#moreBtn svg circle {
+  fill: currentColor;
+  stroke: none;
+}
+
+.viewer-file {
+  min-width: 0;
+  flex: 1;
+  font-size: 21px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -.3px;
+}
+
+.viewer-tools {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.search-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f7f8fd;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.search-row input {
+  min-width: 0;
+  flex: 1;
+  border: 1px solid #ccd1dc;
+  border-radius: 7px;
+  padding: 8px 10px;
+  background: white;
+}
+
+.search-row button, .menu button {
+  border: 0;
+  background: white;
+  padding: 9px;
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  z-index: 10;
+  top: 92px;
+  right: 12px;
+  min-width: 230px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px #0002;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu button {
+  text-align: left;
+  font-size: 13px;
+}
+
+.menu button:hover {
+  background: #f7f7fa;
+}
+
+/* Scrollable document body */
+.document-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: #fff;
+  scrollbar-width: thin;
+}
+
+.document {
+  position: relative;
+  width: 100%;
+  padding: 0 29px 92px;
+  background: white;
+  font-size: 13px;
+}
+
+.document-header {
+  position: relative;
+  height: 48px;
+  text-align: center;
+  padding-top: 2px;
+  border-bottom: 1px solid var(--line);
+}
+
+.document-header h1 {
+      font-size: 19px;
+    line-height: 22px;
+    font-weight: 700;
+    margin: 0 0 5px;
+    color: #171717;
+}
+
+.document-date {
+  margin: 0;
+  font-size:14.5px;
+  color: #929292;
+}
+
+.demo-stamp {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  font-size: 8px;
+  letter-spacing: .6px;
+  border: 1px solid #c9b1ee;
+  color: #9c78cd;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* Sections share the same PDF-document typography */
+.doc-section {
+  border-bottom: 1px solid var(--line);
+  padding: 12px 3px 11px;
+}
+
+.field-label, .section-heading {
+  color: #8f8b8b;
+    font-weight: 600;
+    font-size: 15.2px;
+    line-height: 1.55;
+}
+
+.field-value {
+  font-size: 18.2px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: #252525;
+  overflow-wrap: anywhere;
+}
+
+.field-value.strong {
+  font-weight: 700;
+}
+
+.field-label + .field-value {
+  margin-top: 3px;
+}
+
+.pair {
+  margin-top: 10px;
+}
+
+.pair:first-child {
+  margin-top: 0;
+}
+
+.section-heading {
+  margin: 0 0 12px;
+}
+
+.payment-value {
+  min-height: 55px;
+  padding-top: 15px;
+  padding-bottom: 8px;
+}
+
+.payment-details {
+  min-height: 97px;
+  padding-top: 15px;
+}
+
+.payment-details .pair {
+  margin-top: 9px;
+}
+
+.recipient-section {
+  padding-top: 11px;
+  min-height: 195px;
+}
+
+.recipient-section .pair {
+  margin-top: 9px;
+}
+
+.payer-section {
+  padding-top: 11px;
+  min-height: 153px;
+}
+
+.payer-section .pair {
+  margin-top: 10px;
+}
+
+.transaction-section {
+  padding-top: 10px;
+  border-bottom: none;
+}
+
+.transaction-section .pair {
+  margin-top: 10px;
+}
+
+.id-string {
+  letter-spacing: -.2px;
+}
+
+.document-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  margin-top: 31px;
+  font-size: 11px;
+  color: #7e7e7e;
+}
+
+.document-footer span:last-child {
+  color: #6f6f6f;
+    font-size: 14px;
+    letter-spacing: .3px;
+}
+
+/* Floating demo annotation action */
+.bottom-overlay {
+  position: absolute;
+  right: 14px;
+  bottom: 63px;
+  z-index: 6;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.edit-fab {
+  pointer-events: auto;
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  color: #4d2584;
+  background: #e9d7ff;
+  box-shadow: 0 3px 12px rgba(72,43,100,.2);
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.edit-fab svg {
+  width: 27px;
+  height: 27px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.page-counter {
+  padding: 0 0 1px;
+  font-size: 11px;
+  color: #777;
+}
+
+.android-nav {
+  height: 42px;
+  min-height: 42px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 65px;
+  z-index: 4;
+}
+
+.nav-triangle {
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-right: 16px solid #999;
+  border-radius: 2px;
+}
+
+.nav-circle {
+  border: 6px solid #999;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.nav-square {
+  background: #999;
+  width: 17px;
+  height: 17px;
+  border-radius: 2px;
+}
+
+.toast {
+  position: absolute;
+  z-index: 30;
+  left: 50%;
+  bottom: 95px;
+  width: max-content;
+  max-width: calc(100% - 36px);
+  text-align: center;
+  transform: translateX(-50%);
+  background: #323238;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 9px;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .16s;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+@media (max-width: 360px) {
+  .document {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .viewer-file {
+    font-size: 18px;
+  }
+  .viewer-bar {
+    gap: 2px;
+  }
+  .icon-button {
+    width: 35px;
+    flex-basis: 35px;
+  }
+}
+
+@media (min-width: 600px) {
+  body {
+    padding: 16px;
+  }
+  .phone {
+    height: min(930px, calc(100dvh - 32px));
+    min-height: 620px;
+    border-radius: 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    transition: none;
+  }
+}
+
+/* Compact vertical rhythm inspired by a phone PDF viewer */
+.payment-details {
+  padding-top: 11px;
+  padding-bottom: 7px;
+  min-height: 0;
+}
+
+.payment-details .pair {
+  margin-top: 5px;
+}
+
+.recipient-section, .payer-section {
+  min-height: 0;
+  padding-top: 10px;
+  padding-bottom: 9px;
+}
+
+.recipient-section .section-heading, .payer-section .section-heading {
+  margin-bottom: 7px;
+}
+
+.recipient-section .pair, .payer-section .pair {
+  margin-top: 4px;
+}
+
+.recipient-section .field-label + .field-value,
+.payer-section .field-label + .field-value {
+  margin-top: 0;
+      line-height: 1.4;
+    font-weight: 600;
+    color: #252525;
+}
+
+.transaction-section {
+  padding-top: 9px;
+}
+
+.transaction-section .pair {
+  margin-top: 7px;
+}
+
+/* Fine spacing adjustment for screenshot-like density */
+.payment-value {
+  padding-top: 11px;
+  padding-bottom: 17px;
+}
+
+.payment-details {
+  padding-top: 8px;
+  padding-bottom: 5px;
+}
+
+.payment-details .pair {
+  margin-top: 2px;
+}
+
+.payment-details .field-label + .field-value {
+    margin-top: 1px;
+    line-height: 1.4;
+    font-weight: bold;
+    color: #252525;
+}
+
+.transaction-section .pair {
+  margin-top: 4px;
+}
+
+.transaction-section .field-label + .field-value {
+  margin-top: 2px;
+    margin-top: 0;
+      line-height: 1.4;
+    font-weight: bold;
+    color: #252525;
+}
+
+.document-footer {
+  margin-top: 23px;
+}

@@ -1,0 +1,281 @@
+/* ========================================
+   CAIXA-STYLE RECEIPT UI — DEMO
+   CSS organizado e responsivo
+======================================== */
+:root {
+  --blue: #075c97;
+  --blue-deep: #034c85;
+  --blue-text: #085a91;
+  --body-text: #3f4a55;
+  --muted: #68737e;
+  --line: #0b75ad;
+  --receipt-width: 412px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #eef0fc;
+}
+
+body {
+  color: var(--body-text);
+}
+
+/* Container alinhado como um comprovante vertical */
+.receipt {
+  width: min(100%, var(--receipt-width));
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+.receipt-header {
+  position: relative;
+  height: 160px;
+  background: linear-gradient(115deg, #0969a7 0%, #07558e 69%, #034979 100%);
+  overflow: hidden;
+}
+
+.brand-line {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: space-between;
+  padding: 20px 20px 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  color: #fff;
+}
+
+.brand-word {
+  font-weight: 900;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -.8px;
+}
+
+.brand-mark {
+  display: block;
+  width: 3px;
+  height: 23px;
+  background: #ffad22;
+}
+
+.demo-chip {
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,.88);
+  color: #fff;
+  padding: 5px 7px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .6px;
+}
+
+.header-pattern {
+  position: absolute;
+  width: 240px;
+  height: 200px;
+  right: -60px;
+  top: -80px;
+  transform: rotate(-21deg);
+  background: linear-gradient(135deg, rgba(255,255,255,.11), transparent 65%);
+  clip-path: polygon(0 0, 100% 22%, 66% 100%, 26% 72%);
+}
+
+/* ========================================
+   CARD VALOR + DATA
+======================================== */
+.payment-summary {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: 103px;
+  margin: -66px 18px 0;
+  padding: 14px 10px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 0 2px rgba(0,0,0,.06);
+}
+
+.summary-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  text-align: center;
+}
+
+.summary-value {
+  border-right: 1px solid #d5d9de;
+}
+
+.summary-label {
+  color: #65707b;
+  font-size: 17px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.summary-amount,
+.summary-date-text {
+  color: #075c97;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.summary-amount {
+  font-size: 25px;
+}
+
+.summary-date-text {
+  font-size: 19px;
+}
+
+.summary-time {
+  color: #397aa7;
+  font-size: 16px;
+  margin-top: 4px;
+  line-height: 1.15;
+}
+
+/* ========================================
+   SECTION CONTENT
+======================================== */
+.data-section {
+  padding: 0 18px;
+}
+
+.recipient-section {
+  margin-top: -37px;
+  padding-top: 58px;
+  padding-bottom: 17px;
+  background: #f6f6f8;
+  border-bottom: 1px solid #d7d9dc;
+}
+
+.payer-section {
+  padding-top: 29px;
+  padding-bottom: 5px;
+}
+
+.transaction-section {
+  padding-top: 18px;
+  padding-bottom: 22px;
+}
+
+.section-heading {
+  margin: 0 0 27px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--line);
+  color: var(--blue-text);
+  font-size: 19px;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.detail-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+  min-width: 0;
+  margin-bottom: 22px;
+}
+
+.detail-field:last-child {
+  margin-bottom: 0;
+}
+
+.field-label {
+  color: #66727c;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.field-value {
+  color: #424d57;
+  font-size: 18px;
+  font-weight: 750;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.transaction-section .detail-field {
+  margin-bottom: 34px;
+}
+
+.transaction-section .detail-field:last-child {
+  margin-bottom: 0;
+}
+
+.transaction-code {
+  letter-spacing: .1px;
+}
+
+.receipt-footer {
+  padding: 22px 18px;
+  background: #f3f4f7;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: .3px;
+  color: #54606c;
+}
+
+/* ========================================
+   MOBILE / SMALL PHONE
+======================================== */
+@media (max-width: 360px) {
+  .brand-line {
+    padding-inline: 16px;
+  }
+
+  .payment-summary {
+    margin-inline: 12px;
+    padding-inline: 6px;
+  }
+
+  .summary-amount {
+    font-size: 23px;
+  }
+
+  .summary-date-text {
+    font-size: 17px;
+  }
+
+  .data-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .field-value {
+    font-size: 17px;
+  }
+}
